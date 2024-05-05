@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="Final_Huffman.css">
+</head>
+<body>
+    <h1>Student Management</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Enter name">
+    <label for="gpa">GPA:</label>
+    <input type="text" id="gpa" placeholder="Enter GPA">
+    
+    <button onclick="addStudent()">Add Student</button>
+    <button onclick="removeLastStudent()">Remove Last Student</button>
+    <label for="indexToRemove">Index to Remove:</label>
+    <input type="text" id="indexToRemove" placeholder="Enter index">
+    <button onclick="removeAStudent()">Remove A Student</button>
+    <button onclick="calculateAverageGPA()">Calculate Average GPA</button>
+
+    <ul id="student-list"></ul>
+    <p id="average-gpa"></p>
+    <script src="Final_Huffman.js"></script>
+</body>
+</html>
