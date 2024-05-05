@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temp Convert</title>
+</head>
+<body>
+  <button 
+onclick="convertToCelsius()">
+Convert to Celsius
+</button>
+<button 
+onclick="convertToFahrenheit()">
+Convert to Fahrenheit
+  </button>
+  
+  <script>
+function convertToCelsius() {
+  // Ask the user for input temperature in Fahrenheit
+  let inputTempFahrenheit = Number(prompt('Enter temperature in Fahrenheit:'));
+  
+  // Check if the input is a valid number
+  if (!isNaN(inputTempFahrenheit)) {
+    // Convert Fahrenheit to Celsius
+    let celsius = (inputTempFahrenheit - 32) * (5/9);
+    alert(inputTempFahrenheit + '°F is equal to ' + celsius + '°C');
+  } else {
+    alert('bad input. Please enter a valid number.');
+  }
+}
+
+// Function to convert Fahrenheit to Celsius
+function convertToFahrenheit() {
+  // Ask the user for input temperature in Celsius
+  let inputTempCelsius = Number(prompt('Enter temperature in Celsius:'));
+  
+  // Check if the input is a valid number
+  if (!isNaN(inputTempCelsius)) {
+    // Convert Celsius to Fahrenheit
+    let fahrenheit = (inputTempCelsius * (9/5)) + 32;
+    alert(inputTempCelsius + 'C is equal to ' + fahrenheit + 'F');
+  } else {
+    alert('Invalid input. Please enter a valid number.');
+  }
+}
+
+  </script>
+</body>
+</html>

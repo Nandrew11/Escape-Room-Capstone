@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let numbers = [];
+        let sum = 0;
+
+        while (true) {
+            let input = prompt("Enter a number (or click cancel to finish):");
+            if (input === null) {
+                break;
+            }
+
+            let num = parseFloat(input);
+            if (!isNaN(num)) {
+                numbers.push(num);
+                sum += num;
+            }
+        }
+
+        let average = sum / numbers.length;
+
+        document.write("Number of entries: " + numbers.length + "<br>");
+        document.write("Sum of the numbers: " + sum + "<br>");
+        document.write("Average of the numbers: " + average.toFixed(2) + "<br>");
+    
+  </script>
+</body>
+</html>

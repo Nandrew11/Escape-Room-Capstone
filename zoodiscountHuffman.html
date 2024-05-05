@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zoo discount</title>
+</head>
+<body>
+<p>
+  Are you a Service Member?
+</p>
+  <button class="yes" onclick="
+  servicemember = true;
+  discount();
+   ">
+   Yes
+  </button>
+  <button class="no" onclick="
+   servicemember = false;
+   discount();
+   ">
+   No
+  </button>
+
+   <script>
+    // asking how old the user is
+     let age = prompt("How old are you?");
+     servicemember = ""
+     discount();
+     //for the buttons above
+     function discount(){
+
+// if younger than 12 then discount and older than 56 discont but in between then no discount
+     if(age <= 12)
+     {
+       console.log("Discount")
+     } 
+     else if(age > 12 && age < 56 ){
+       console.log(" No Discount")
+     }
+     else if(age >= 56){
+       console.log ("Discount")
+     };
+
+
+     if(servicemember == true){
+        console.log ("Discount")
+      }
+      else(servicemember ==  false)(
+        console.log(" No Discount")
+      )
+    }
+   </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: times, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #000000;
+        }
+        p {
+            font-size: 20px;
+            color: #000000;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #ff9100;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<!---   Header info as well as button info as well-->
+
+
+  <h1>Number Guessing Game</h1>
+  <p>Guess the correct number between 1 and 100. You have <span id="attemptsLeft">7</span> attempts left.</p>
+  <input type="text" id="guess" placeholder="Enter your guess">
+  <button id="submitGuess">Submit Guess</button>
+  <button id="NewGame">New Game</button>
+  <div id="result"></div>
+
+  <script>
+    //computer picks a random number 
+      let randomNumber = ComputerNumber();
+      //the number of user attempts
+      let attempts = 7;
+      //to set number as a integer 
+      function ComputerNumber() {
+          return Math.floor(Math.random() * 100) + 1;
+      }
+      // getting the data to put into the constents 
+      const submitGuessButton = document.getElementById("submitGuess");
+      const newGameButton = document.getElementById("NewGame");
+      const guessInput = document.getElementById("guess");
+      const resultDiv = document.getElementById("result");
+      const attemptsLeft = document.getElementById("attemptsLeft");
+      //when clicking it will submit your guess and anohter for new game
+      submitGuessButton.addEventListener("click", checkGuess);
+      newGameButton.addEventListener("click", NewGame);
+      //function for when you hit the submit button
+      function checkGuess() {
+          const guess = parseInt(guessInput.value);
+        //if number is above 100 and below 1 is gives a error
+          if (isNaN(guess) || guess < 1 || guess > 100) {
+              alert("Please enter a number between 1 and 100.");
+              guessInput.value = "";
+              return;
+          }
+          //if right it will give text that is green and saying congrats and disable the button
+          if (guess === randomNumber) {
+              resultDiv.textContent = `Congratulations! You guessed the right number: ${randomNumber}`;
+              resultDiv.style.color = "green";
+              disableInputAndButton();
+            // is the number is too low turn red and saying the attempts 
+          } else if (guess < randomNumber) {
+              resultDiv.textContent = `Too low. You have ${--attempts} attempts left.`;
+              resultDiv.style.color = "red";
+            //same as above but if number is too high 
+          } else {
+              resultDiv.textContent = `Too high. You have ${--attempts} attempts left.`;
+              resultDiv.style.color = "red";
+          }
+
+          attemptsLeft.textContent = attempts;
+          guessInput.value = "";
+          //if out of attempts then show the correct answer and disable the button
+          if (attempts === 0) {
+              resultDiv.textContent = `Sorry, you're out of attempts. The correct number was ${randomNumber}.`;
+              resultDiv.style.color = "red";
+              disableInputAndButton();
+          }
+      }
+      //functions from the buttons up at the top of the code. resets everything in the game
+      function NewGame() {
+          randomNumber = ComputerNumber();
+          attempts = 7;
+          attemptsLeft.textContent = attempts;
+          resultDiv.textContent = "";
+          guessInput.value = "";
+          guessInput.disabled = false;
+          submitGuessButton.disabled = false;
+      }
+      //turns the submit button off so they cant be clicked anymore
+      function disableInputAndButton() {
+          guessInput.disabled = true;
+          submitGuessButton.disabled = true;
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #303030;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #0074d9;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coin Flip</h1>
+    <label for="name">Enter your name:</label>
+    <input type="text" id="name" placeholder="Your Name"><br><br>
+    
+    <button id="headsButton">Heads</button>
+    <button id="tailsButton">Tails</button><br><br>
+
+    <p id="result"></p>
+
+    <script>
+      //gets the varibals from the buttons and label from the HTML names
+        const headsButton = document.getElementById('headsButton');
+        const tailsButton = document.getElementById('tailsButton');
+        const nameInput = document.getElementById('name');
+        const resultParagraph = document.getElementById('result');
+      // From the buttons on click you choose the heads or tails from the varibles 
+        headsButton.addEventListener('click', () => playGame('Heads'));
+        tailsButton.addEventListener('click', () => playGame('Tails'));
+      //every click of a botton you play the game that has a 50/50 chance of geting heads or tails 
+        function playGame(PlayerChoice) {
+            const PlayerName = nameInput.value;
+            const coinSide = Math.random() < 0.5 ? 'Heads' : 'Tails';
+            //if your choice the the same as the computer choice you win!
+            if (PlayerChoice === coinSide) {
+                resultParagraph.textContent = `${PlayerName}, you guessed correctly! It's ${coinSide}. You won! :)`;
+            } else {
+                resultParagraph.textContent = `${PlayerName}, you guessed wrong. It's ${coinSide}. You lost :( `;
+            }
+        }
+    </script>
+</body>
+</html>

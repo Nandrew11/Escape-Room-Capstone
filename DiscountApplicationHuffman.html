@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let price = prompt("What is price of your object");
+        let quant = prompt("How many do you want");
+        let total = "";
+        let cap = "";
+        if(price<=1000 && price>=1)
+            if(quant <= 100 && quant >=1)
+            {
+                document.write("you purchased: "+ quant + " of an item that cost: $" +  price);
+                total = quant * price;
+                if(quant<=25 && quant>=1)
+                {
+                    cap = total * .1;
+                    total = total -cap;
+                    document.write("<br>your discount rate was .1 which gave you $" + cap.toFixed(2) + " off your order today");
+                }
+                else if(quant <=50 && quant>=26)
+                {
+                    cap = total * .2;
+                    total = total -cap;
+                    document.write("<br>your discount rate was .2 which gave you $" + cap.toFixed(2) + " off your order today");
+                }
+                else if(quant <= 75 && quant >=56)
+                {
+                    cap = total * .3;
+                    total = total -cap;
+                    document.write("<br>your discount rate was .3 which gave you $" + cap.toFixed(2) + " off your order today");
+                }
+                else if(quant <=100 && quant >= 76)
+                {
+                    cap = total * .4;
+                    total = total -cap;
+                    document.write("<br>your discount rate was .4 which gave you $" + cap.toFixed(2) + " off your order today");
+                }
+            let been = quant*price;
+            document.write("<br>your cost without the discount would have been: $"+ been.toFixed(2));
+            document.write("<br>your total purchase amount today came out to: $"+ total.toFixed(2));
+            }
+            else
+            {
+                alert("there is a issue try again");
+            }
+        else
+        {
+            alert("theres a problem try again");
+        }
+  </script>
+</body>
+</html>

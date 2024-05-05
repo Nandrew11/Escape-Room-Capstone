@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circle And Temp Fun</title>
+</head>
+<body>
+  <script>
+    function rEquation (Radius) {
+   document.write ("Circumference of radius " + Radius + " = " + Radius *2* 3.14 + "<br>" + "Area of Radius " + Radius + " = " + 3.14*Radius **2 + "<br>");
+   };
+ 
+
+   function FtoC(fahrenheit) {
+    let celsius = (fahrenheit - 32) * 5 /9;
+    document.write(fahrenheit + "F = " + celsius.toFixed(2) + "C" + "<br>");
+   };
+
+    function CtoF(celsius){
+      let fahren = celsius * 9/5 + 32;
+      document.write(celsius + "C = " + fahren.toFixed(2) + " F");
+    };
+
+  rEquation (15);
+  FtoC(45.9);
+  CtoF(12.8);
+    
+  </script>
+</body>
+</html>

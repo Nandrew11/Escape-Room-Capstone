@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let userNumber = prompt("give me number 1-10");
+    let numcount = "";
+    for(numcount = 1; numcount<=10;numcount++)
+    {
+        document.write(userNumber +" * "+ numcount +" = " + userNumber*numcount + "<br>")
+    }
+    let numerator  = prompt("give me a number to be divided by the next")
+    let denomanator = prompt("give me a number to divide by the last")
+    let fraction = "";
+    for(fraction = 1; fraction<=numerator ;fraction++)
+    {
+        if(fraction%denomanator == 0)
+        {
+            document.write(fraction + " is divisible by "+ denomanator + "<br>");
+        }
+        else
+        {
+            document.write(fraction + " is not divisible by " + denomanator + "<br>");
+        }
+    }
+</script>
+</body>
+</html>
